@@ -68,6 +68,5 @@ void Msort(vector<int>& nums, int left, int right) {
 void MergeSort(vector<int>& nums) {
 	if (nums.size() < 2) return;
 
-	vector<int> tmp;
 	Msort(nums, 0, nums.size() - 1);
 }
