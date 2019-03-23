@@ -13,7 +13,9 @@
    * 归并排序
      * [数组](https://github.com/Stoneplay/Algorithm/blob/master/MergeSort/MergeSort/main.cpp)
      * [链表](https://github.com/Stoneplay/Algorithm/blob/master/MergeSort_List/MergeSort_List/main.cpp)
-   * [快速排序](https://github.com/Stoneplay/Algorithm/blob/master/QuickSort/QuickSort/main.cpp)
+   * 快速排序：
+     * [数组](https://github.com/Stoneplay/Algorithm/blob/master/QuickSort/QuickSort/main.cpp)
+     * [链表](https://github.com/Stoneplay/Algorithm/blob/master/QuickSort_List/QuickSort_List/main.cpp)
    * [堆排序]()
    * [桶排序]()
 
