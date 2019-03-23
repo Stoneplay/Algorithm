@@ -10,13 +10,12 @@
 
    * [冒泡排序](https://github.com/Stoneplay/Algorithm/blob/master/BubbleSort/BubbleSort/main.cpp)
    * [插入排序](https://github.com/Stoneplay/Algorithm/blob/master/InsertionSort/InsertionSort/main.cpp)
-   * [归并排序](https://github.com/Stoneplay/Algorithm/blob/master/MergeSort/MergeSort/main.cpp)
+   * 归并排序
+     * [数组](https://github.com/Stoneplay/Algorithm/blob/master/MergeSort/MergeSort/main.cpp)
+     * [链表](https://github.com/Stoneplay/Algorithm/blob/master/MergeSort_List/MergeSort_List/main.cpp)
    * [快速排序](https://github.com/Stoneplay/Algorithm/blob/master/QuickSort/QuickSort/main.cpp)
    * [堆排序]()
    * [桶排序]()
 
    
-
-
-
 
