@@ -24,15 +24,19 @@ int main() {
 }
 
 ListNode* MakeList() {
+	ListNode *head = NULL, *tmp;
 	int num;
 
-	cin >> num;
-	ListNode *head = new ListNode(num);
-	ListNode *tmp = head;
 	while (cin >> num) {
-		ListNode *node = new ListNode(num);
-		tmp->next = node;
-		tmp = tmp->next;
+		if (!head) {
+			head = new ListNode(num);
+			tmp = head;
+		}
+		else {
+			ListNode* node = new ListNode(num);
+			tmp->next = node;
+			tmp = tmp->next;
+		}
 		if (cin.get() == '\n') break;
 	}
 
