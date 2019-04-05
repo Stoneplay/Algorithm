@@ -18,7 +18,7 @@
    * 快速排序：
      * [数组](https://github.com/Stoneplay/Algorithm/blob/master/QuickSort/QuickSort/main.cpp)
      * [链表](https://github.com/Stoneplay/Algorithm/blob/master/QuickSort_List/QuickSort_List/main.cpp)
-   * [堆排序]()
+   * [堆排序](<https://github.com/Stoneplay/Algorithm/blob/master/HeapSort/HeapSort/main.cpp>)
    * [桶排序]()
 
    
