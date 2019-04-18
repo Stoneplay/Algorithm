@@ -58,7 +58,7 @@ void Merge(vector<int>& nums, int left, int mid, int right) {
 /* 将待排序数组分为两个子数组,分别排序后再合并 */
 void Msort(vector<int>& nums, int left, int right) {
 	if (left < right) {
-		int mid = left + ((right - left) >> 2);
+		int mid = left + ((right - left) >> 1);
 		Msort(nums, left, mid);
 		Msort(nums, mid + 1, right);
 		Merge(nums, left, mid, right);
