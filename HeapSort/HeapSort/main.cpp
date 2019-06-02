@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void Adjust(vector<int>&, int, int);
+void Print(vector<int>&);
 void HeapSort(vector<int>&);
 
 int main() {
@@ -16,10 +16,7 @@ int main() {
 	}
 
 	HeapSort(nums);
-	for (size_t i = 0; i < nums.size(); i++) {
-		cout << nums[i] << ' ';
-	}
-	cout << endl;
+	Print(nums);
 }
 
 inline void swap(int& a, int& b) {
@@ -28,29 +25,39 @@ inline void swap(int& a, int& b) {
 	b = tmp;
 }
 
+void Print(vector<int>& nums) {
+	for (size_t i = 0; i < nums.size(); i++) {
+		cout << nums[i] << ' ';
+	}
+	cout << endl;
+}
+
 // 存储堆元素的数组下标从0开始时，对于数组中下标为i的元素，及第i + 1个元素：
 // LeftChild(i) = 2*i + 1
 // RightChild(i) = 2*i + 2
 // Parent(i) = (i - 1) / 2
 
-void Adjust(vector<int>& nums, int current, int end) {
-	int left = 2 * current + 1;		// 当前节点的左儿子
-	int right = 2 * current + 2;	// 当前节点的右儿子
-	int MaxIdx = current;			// 当前遍历的非叶节点及其左右儿子中，最大的节点的
+/* 自上而下地维护最大堆性质 */
+void SiftDown(vector<int>& nums, int current, int end) {
+	int child = 2 * current + 1;	// 当前节点的左儿子
+	if (child > end) return;	    // 当前节点无子节点
 
-	/* 确定当前节点及其左右儿子中，最大的节点的下标，并记录为MaxIdx */
-	if (left <= end && nums[MaxIdx] < nums[left]) {
-		MaxIdx = left;
-	}
-	if (right <= end && nums[MaxIdx] < nums[right]) {
-		MaxIdx = right;
-	}
+	int value = nums[current];	// 保存当前节点的值
+	while (child <= end) {
+		if (child < end && nums[child] < nums[child + 1]) {
+			child++;	// 找到较大的子节点
+		}
 
-	/* 若最大节点不是当前节点，而是其子节点，则需要调整 */
-	if (MaxIdx != current) {
-		swap(nums[MaxIdx], nums[current]);
-		Adjust(nums, MaxIdx, end);	// 逐级向下调整,直至不能调整(节点下标超出数组范围)
+		if (value > nums[child]) {
+			break;		// 父节点的值大于两个子节点的值,无需调整
+		}
+		else {
+			nums[current] = nums[child];
+			current = child;
+			child = 2 * current + 1;
+		}
 	}
+	nums[current] = value;		// 当预先保存的值插入到堆中
 }
 
 void HeapSort(vector<int>& nums) {
@@ -58,12 +65,13 @@ void HeapSort(vector<int>& nums) {
 
 	/* 建立最大堆 */
 	for (int i = nums.size() / 2 - 1; i >= 0; i--) {
-		Adjust(nums, i, nums.size() - 1);	// 从最后一个非叶节点开始，依次对每一个非叶节点维护最大堆性质
+		SiftDown(nums, i, nums.size() - 1);	// 从最后一个非叶节点开始，依次对每一个非叶节点维护最大堆性质
 	}
+	//Print(nums);
 
 	/* 从后往前，依次将每一个元素与未排序的元素中的最大元素进行交换，然后维护最大堆性质，直至完成整个数组的排序*/
 	for (int i = nums.size() - 1; i > 0; i--) {
 		swap(nums[0], nums[i]);
-		Adjust(nums, 0, i - 1);
+		SiftDown(nums, 0, i - 1);
 	}
 }
